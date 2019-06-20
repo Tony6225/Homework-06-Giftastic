@@ -1,0 +1,35 @@
+* {
+	font-size: 18px;
+}
+
+.panel-title {
+    color: #00c6d4;
+    font-weight: 800;
+    margin-top: 10px;
+	margin-left: 10px;
+}
+
+.item {
+	display: inline-block;
+}
+
+#add-cat {
+    background-color: #00aa4ddc;
+}
+
+.clicker {
+    margin: 5px;
+    background-color: #00aa4ddc;
+}
+
+img, p {
+	margin: 5px;
+}
+
+body {
+	background-image: url(../images/bg.gif);
+	background-position: center center;
+	background-size: cover;
+	background-attachment:fixed; 
+}
+
