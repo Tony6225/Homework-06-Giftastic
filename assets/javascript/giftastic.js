@@ -1,4 +1,4 @@
-var categories = [
+let categories = [
     "Spagett",
     "Rick Flair",
     "Nicholas Cage",
@@ -9,8 +9,8 @@ function renderButtons() {
 
     $(".button-display").empty();
 
-    for (var i = 0; i < categories.length; i++) {
-        var a = $("<button>");
+    for (let i = 0; i < categories.length; i++) {
+        let a = $("<button>");
         a.addClass("clicker btn btn-primary");
         a.attr("data-name", categories[i]);
         a.text(categories[i]);
@@ -23,7 +23,7 @@ renderButtons();
 
 $("body").on("click", '#add-cat', function (event) {
     event.preventDefault();
-    var cat = $("#cat-input").val().trim();
+    let cat = $("#cat-input").val().trim();
     if (cat == '') {
         alert('Please insert a category!')
     }
@@ -36,9 +36,9 @@ $("body").on("click", '#add-cat', function (event) {
 });
 
 $("body").on("click", '.clicker', function () {
-    var cat = $(this).attr("data-name");
+    let cat = $(this).attr("data-name");
     console.log("data-name -" + cat + "-");
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+    let queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         cat + "&api_key=dc6zaTOxFJmzC&limit=10";
     console.log("query -" + queryURL + "-");
 
@@ -47,19 +47,19 @@ $("body").on("click", '.clicker', function () {
         method: "GET"
     })
         .done(function (response) {
-            var results = response.data;
+            let results = response.data;
             console.log(response);
             $('#images').empty();
 
-            for (var i = 0; i < results.length; i++) {
-                var gifDiv = $("<div class='item'>");
-                var rating = results[i].rating;
-                var p = $('<p>')
+            for (let i = 0; i < results.length; i++) {
+                let gifDiv = $("<div class='item'>");
+                let rating = results[i].rating;
+                let p = $('<p>')
                     .append('<span class="label label-lg label-info">Rating: <span class="badge">' + rating + '</span></span>');
 
-                var catImage = $("<img class='img-thumbnail'>");
-                var catUrl = results[i].images.fixed_height.url;
-                var catStill = results[i].images.fixed_height_still.url;
+                let catImage = $("<img class='img-thumbnail'>");
+                let catUrl = results[i].images.fixed_height.url;
+                let catStill = results[i].images.fixed_height_still.url;
                 catImage.attr({
                     src: catStill,
                     'data-still': catStill,
@@ -77,7 +77,7 @@ $("body").on("click", '.clicker', function () {
 
 //Play or pause gif images
 $("body").on("click", '.img-thumbnail', function () {
-    var state = $(this).attr('data-state');
+    let state = $(this).attr('data-state');
 
     if (state == 'still') {
         $(this).attr('src', $(this).attr('data-animate'));
